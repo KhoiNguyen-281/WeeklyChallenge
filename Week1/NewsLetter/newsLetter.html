@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./newsLetter.css" rel="stylesheet" />
+    <script src="./newsLetter.js" defer></script>
+  </head>
+  <body>
+    <div class="div__main-content--container" id="form">
+      <div class="div__content--container">
+        <span class="span__content--header">Stay updated!</span>
+        <span class="span__content--detail">
+          Join 60,000+ product managers receiving monthly updates on:</span
+        >
+        <ul>
+          <li>
+            <img src="./images/icon-list.svg" />Product discovery and building
+            what matters
+          </li>
+          <li>
+            <img src="./images/icon-list.svg" />Measuring to ensure updates are
+            a success
+          </li>
+          <li><img src="./images/icon-list.svg" />And much more!</li>
+        </ul>
+        <div class="div__email--container">
+          <div class="email-header">
+            <label>Email address</label>
+            <label id="invalid">Valid email required</label>
+          </div>
+          <input id="email" type="email" placeholder="email@company.com" />
+        </div>
+        <button id="submit" type="button" disabled="true" onclick="subscribe()">
+          Subscribe to monthly newsletter
+        </button>
+      </div>
+
+      <div class="div__image--container"></div>
+    </div>
+    <div class="div__success--container" id="thanks">
+      <img src="./images/icon-list.svg" />
+      <span class="span__success--header">Thanks for subscribing!</span>
+      <span class="span__success--content"
+        >A confirmation email has been sent to
+        <span class="span__success--bold">ash@loremcompany.com</span>. Please
+        open it and click the button inside to comfirm your subscription.</span
+      >
+      <button id="confirm" type="button" onclick="dismiss()">
+        Dismiss message
+      </button>
+    </div>
+  </body>
+</html>
