@@ -31,6 +31,11 @@ body {
   align-items: center;
 }
 
+.div__main-content--container > img {
+  width: 40%;
+  object-fit: contain;
+}
+
 .div__image--container {
   width: 50%;
   height: 400px;
