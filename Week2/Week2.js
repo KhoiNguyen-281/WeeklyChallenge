@@ -1,9 +1,3 @@
-// const imgDiv = document.querySelectorAll(".div__img");
-
-// imgDiv.addEventListener("click", () => {
-//   imgDiv.lastElementChild.style.display = "flex";
-// });
-
 const imgDiv = document.querySelectorAll(".div__img");
 const imgDiv2 = document.querySelectorAll(".div__pImg");
 const img = document.getElementById("pImg");
@@ -174,3 +168,10 @@ function closeOverlay() {
 document.addEventListener("mousedown", (e) => {
   closeCart(e);
 });
+
+const menu = document.querySelector(".menu");
+const nav = document.querySelector(".nav");
+
+function menuClick() {
+  nav.classList.toggle("slide-in");
+}
