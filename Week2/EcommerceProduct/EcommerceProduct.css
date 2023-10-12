@@ -6,6 +6,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  user-select: none;
+  position: relative;
 }
 
 @font-face {
@@ -16,15 +18,282 @@ body {
 .div__main--container {
   width: 80%;
   height: 100%;
-
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div__overlay--container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.div__close--button {
+  width: 34%;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  object-fit: cover;
+}
+
+.div__close--button > svg {
+  width: 24px;
+
+  /* object-fit: ; */
+}
+
+.div__close--button > svg path {
+  fill: white;
+}
+
+.div__close--button > svg:hover path {
+  fill: hsl(26, 100%, 55%);
+  cursor: pointer;
+}
+.div__overlay--container > .div__image--container {
+  height: fit-content;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  position: relative;
+}
+
+.div__next-previous--button {
+  position: absolute;
+  width: 38.5%;
+  transform: translate(0, -25%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.div__button {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.div__button:hover {
+  cursor: pointer;
+}
+
+.div__button > svg {
+  width: 13px;
+  height: 18px;
+}
+.div__button:hover > svg path {
+  stroke: hsl(26, 100%, 55%);
+}
+
+.div__overlay--container
+  > .div__image--container
+  > .div__sub-images--container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.div__container--header {
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid hsl(220, 14%, 75%);
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.div__header-logo-nav {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.div__menu {
+  display: none;
+}
+
+.nav__nav-bar > ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-family: primary, sans-serif;
+  color: hsl(220, 14%, 75%);
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* Very dark blue: hsl(220, 13%, 13%)
+- Dark grayish blue: hsl(219, 9%, 45%)
+- Grayish blue: hsl(220, 14%, 75%) */
+.nav__nav-bar > ul > li {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav__nav-bar > ul > li:hover {
+  color: hsl(219, 9%, 45%);
+  border-bottom: 2px solid hsl(26, 100%, 55%);
+  cursor: pointer;
+}
+
+.div__user--container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.div__user--container > img {
+  width: 3rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+}
+
+.div__cart-icon {
+  position: relative;
+}
+
+#cart-quant {
+  position: absolute;
+  transform: translate(10px, -8px);
+  font-family: primary, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: white;
+  padding: 1px 6px;
+  display: none;
+  border-radius: 50px;
+  background-color: hsl(26, 100%, 55%);
+}
+
+.div__cart {
+  position: absolute;
+  transform: translate(-10rem, 10rem);
+  width: fit-content;
+  box-shadow: 1px 12px 20px hsl(220, 14%, 75%);
+  background-color: white;
+  border-radius: 6px;
+  display: none;
+  flex-direction: column;
+}
+
+.none-select {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.div__cart > span {
+  width: 100%;
+  border-bottom: 2px solid hsl(223, 64%, 98%);
+  padding: 1.5rem;
+  font-family: primary, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.div__cart-body {
+  padding: 1.5rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.div__empty {
+  font-family: primary, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(219, 9%, 45%);
+  white-space: nowrap;
+  height: 176px;
+  width: 355px;
+}
+.div__cart-product--row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: fit-content;
+  white-space: nowrap;
+  font-family: primary, sans-serif;
+  font-size: 1rem;
+  color: hsl(220, 14%, 50%);
+  line-height: 1.5;
+}
+
+.div__cart-product--row > img {
+  height: 3rem;
+  border-radius: 4px;
+}
+
+.div__product-price--container {
+  font-family: primary, sans-serif;
+  font-size: 1rem;
+  display: flex;
+  gap: 6px;
+}
+
+.button__checkout {
+  color: white;
+  font-weight: 600;
+  background-color: hsl(26, 100%, 55%);
+  border: none;
+  font-family: primary, sans-serif;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+#total {
+  font-weight: 600;
+  color: hsl(220, 13%, 13%);
+}
+
+.div__user--container > img:hover {
+  cursor: pointer;
+  border: 2px solid hsl(26, 100%, 55%);
 }
 
 .div__container--body {
   width: 90%;
   height: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
@@ -49,22 +318,18 @@ body {
   gap: 30px;
 }
 
-/* .div__sub-images--container > img {
-  width: 100%;
-  object-fit: contain;
-  border-radius: 0.75rem;
-} */
-
 .div__img {
   position: relative;
   width: fit-content;
   height: fit-content;
-
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
-  height: fit-content;
+}
+
+.div__mobile {
+  display: none;
 }
 
 .div__img > img {
@@ -73,21 +338,36 @@ body {
   border-radius: inherit;
   object-fit: cover;
 }
-
-/* .div__img:active > img {
-  opacity: 0.5;
-  border: 2px solid hsl(26, 100%, 55%);
-} */
-
 .div__cover {
   position: absolute;
   display: none;
   width: 100%;
   height: 100%;
   border: 2px solid hsl(26, 100%, 55%);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
 }
+
+.div__img > img:hover + .div__cover {
+  display: flex;
+  border: 0px solid hsl(26, 100%, 55%);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.75rem;
+}
+
+.div__cover:hover {
+  display: flex;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.75rem;
+}
+
+/* .div__img:active > img {
+  opacity: 0.5;
+  border: 2px solid hsl(26, 100%, 55%);
+} */
 
 .div__content--container {
   width: 42%;
@@ -108,6 +388,7 @@ body {
   color: hsl(26, 100%, 55%);
   font-family: primary, sans-serif;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .div__content--header > h1 {
@@ -144,6 +425,7 @@ body {
   font-family: primary, sans-serif;
   margin: 0;
   flex-shrink: 1;
+  letter-spacing: 2px;
 }
 
 .div__discount {
@@ -175,9 +457,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding: 1rem 1rem;
+  gap: 30px;
   border-radius: 6px;
+}
+
+.div__change-quantity {
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div__change-quantity:hover > svg use {
+  fill: hsl(26, 100%, 75%);
+}
+
+.div__change-quantity:hover {
+  cursor: pointer;
 }
 
 .button__add-to-cart {
@@ -196,6 +492,158 @@ body {
   box-shadow: 0px 10px 20px -5px hsl(26, 100%, 55%);
 }
 
+.button__add-to-cart:hover {
+  cursor: pointer;
+  background-color: hsl(26, 100%, 75%);
+  box-shadow: none;
+}
+
 .button__add-to-cart > svg path {
   fill: white;
+}
+
+@media only screen and (max-width: 400px) {
+  .div__main--container {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .div__container--header {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .div__menu {
+    display: flex;
+  }
+  .nav__nav-bar {
+    display: none;
+  }
+
+  .div__user--container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .div__cart-icon {
+    transform: translate(0, 3px);
+  }
+
+  .div__user--container > img {
+    width: 2rem;
+    border: 2px solid transparent;
+    border-radius: 50px;
+  }
+
+  .div__user--container > svg {
+    padding: 0;
+  }
+
+  .div__container--body {
+    width: 100%;
+    flex-direction: column;
+  }
+  .div__image--container {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .div__image--container > img {
+    height: 280px;
+    object-fit: cover;
+  }
+
+  .div__sub-images--container {
+    display: none;
+  }
+
+  .div__content--container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 1.25rem;
+  }
+
+  .div__content--header {
+    gap: 12px;
+  }
+
+  .div__content--header > span {
+    font-size: 12px;
+  }
+
+  .div__content--header > h1 {
+    font-size: 26px;
+  }
+
+  .div__content--body {
+    gap: 2rem;
+  }
+
+  .div__mobile {
+    display: flex;
+    width: 90%;
+    transform: translate(5.5%, 275%);
+  }
+
+  .div__mobile > .div__button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .div__button > svg {
+    width: 12px;
+    height: 17px;
+  }
+
+  .div__content--body > p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .div__price--container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .div__content--footer {
+    flex-direction: column;
+  }
+  .div__quantity {
+    width: 100%;
+  }
+  .div__quantity > span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .div__cart {
+    transform: translate(-76.25%, 68%);
+    box-shadow: none;
+  }
+  .div__empty {
+    width: 340px;
+  }
+
+  .div__cart-product--row {
+    font-size: 15px;
+  }
+
+  .button__add-to-cart {
+    padding: 1rem;
+    box-shadow: 0px 5px 10px -5px hsl(26deg 100% 55%);
+  }
+
+  .button__add-to-cart:hover {
+    background-color: hsl(26, 100%, 55%);
+  }
 }
