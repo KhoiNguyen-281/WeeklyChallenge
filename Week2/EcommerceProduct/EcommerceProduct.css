@@ -153,7 +153,7 @@ body {
   width: 100%;
   position: relative;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem;
   /* animation: runningAnimation 20s linear forwards; */
 }
 
@@ -165,8 +165,10 @@ body {
   align-items: center;
   position: absolute;
   overflow: hidden;
-  width: 100%;
-  transform: translate(0%, 0);
+  width: fit-content;
+  transform: translate(100%, 0);
+  padding: 1rem;
+  gap: 10px;
   top: 0;
   right: 0;
   animation: runningAnimation 30s infinite linear forwards;
